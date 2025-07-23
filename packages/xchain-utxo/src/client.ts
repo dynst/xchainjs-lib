@@ -173,7 +173,7 @@ export abstract class Client extends BaseXChainClient {
       try {
         const feeRates = await this.roundRobinGetFeeRates()
         return feeRates
-      } catch (error) {
+      } catch (_error) {
         console.warn('Can not retrieve fee rates from provider')
       }
     }
@@ -182,7 +182,7 @@ export abstract class Client extends BaseXChainClient {
       try {
         const feeRate = await this.getFeeRateFromThorchain()
         return standardFeeRates(feeRate)
-      } catch (error) {
+      } catch (_error) {
         console.warn(`Can not retrieve fee rates from Thorchain`)
       }
     }
